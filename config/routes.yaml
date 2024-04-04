@@ -1,0 +1,28 @@
+create_auditor:
+    path: /api/auditors
+    controller: 'App\Controller\AuditorController::createAuditor'
+    methods: ['POST']
+
+get_auditor_schedule:
+    path: /api/auditors/{id}/schedule
+    controller: 'App\Controller\AuditorController::getSchedule'
+    methods: ['GET']
+
+assign_job_to_auditor:
+    path: /api/auditors/{id}/jobs
+    controller: 'App\Controller\AuditorController::assignJob'
+    methods: ['POST']
+
+mark_job_as_completed:
+    path: /api/jobs/{id}/complete
+    controller: 'App\Controller\AuditorController::markJobAsCompleted'
+    methods: ['PUT']
+app.swagger_ui:
+    path: /api/doc
+    methods: GET
+    defaults: { _controller: nelmio_api_doc.controller.swagger_ui }
+
+app.swagger:
+    path: /api/doc.json
+    methods: GET
+    defaults: { _controller: nelmio_api_doc.controller.swagger }
